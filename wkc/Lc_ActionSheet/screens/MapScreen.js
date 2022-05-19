@@ -9,6 +9,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { getUbikeInfo } from '../api';
 import metroJson from "../json/metro.json";
 import ActionButton from '../components/ActionButton';
+import blackMapStyle from '../mapStyles/blackMapStyle.json';
+import myStyle from '../mapStyles/myStyle.json';
 
 export default function MapScreen() {
    const [msg, setMsg] = useState("Waiting...");
@@ -88,6 +90,8 @@ export default function MapScreen() {
             style={{ flex: 1 }}
             showsTraffic
             onRegionChangeComplete={onRegionChangeComplete}
+            provider="google"
+            customMapStyle={myStyle}
          >
             {(zoomRatio > 0.14) && metro.map((site) => (
                <Marker
@@ -128,7 +132,7 @@ export default function MapScreen() {
                <Ionicons name={"ios-locate"}
                   size={60}
                   color="black"
-                  onPress={getLocation}
+                  onPress={this._getLocationAsync}
                />
             </Box>
 

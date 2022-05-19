@@ -7,7 +7,8 @@ import * as Location from 'expo-location';
 import * as Device from "expo-device";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import mapStyle from "./styles/mapStyle.json"
+import mapStyle from "./styles/mapStyle.json";
+import blackMapStyle from './styles/blackMapStyle.json';
 import metroJson from "./json/metro.json";
 
 export default function App() {
@@ -93,7 +94,7 @@ export default function App() {
             showsTraffic
             // onRegionChangeComplete={onRegionChangeComplete}
             provider="google"
-            customMapStyle={mapStyle}
+            customMapStyle={blackMapStyle}
           >
             {metro.map((site) => (
               <Marker

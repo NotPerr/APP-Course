@@ -7,7 +7,8 @@ import * as Location from 'expo-location';
 import * as Device from "expo-device";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import mapStyle from "./styles/mapStyle.json"
+import mapStyle from "./styles/mapStyle.json";
+import blackMapStyle from './styles/blackMapStyle.json';
 import { getUbikeInfo } from './api';
 import metroJson from "./json/metro.json";
 
@@ -92,6 +93,7 @@ export default function App() {
             style={{ flex: 1 }}
             showsTraffic          
             onRegionChangeComplete={onRegionChangeComplete}
+            customMapStyle={blackMapStyle}
           >
             {(zoomRatio > 0.14) && metro.map((site) => (
               <Marker
